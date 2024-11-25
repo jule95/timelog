@@ -14,3 +14,8 @@ Produces an error:<br/>
 
 Fix:<br/>
 ```$args['staff_id']>3```
+
+## ToDo
+- Styles
+- Error Handling
+- ESLint
