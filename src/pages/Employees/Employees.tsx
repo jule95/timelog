@@ -21,7 +21,7 @@ const Employees = () => {
   return (
     <div>
       <Typography variant="h4">
-        {t(`navbar.employees`)}
+        {t(`employees.heading`)}
       </Typography>
 
       { loading && (

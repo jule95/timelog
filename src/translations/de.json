@@ -6,6 +6,18 @@
       "employees": "Mitarbeiter",
       "projects": "Projekte",
       "home": "Startseite"
+    },
+    "home": {
+      "heading": "Hallo!"
+    },
+    "myTimeLog": {
+      "heading": "Mein Time Log"
+    },
+    "employees": {
+      "heading": "Mitarbeiter"
+    },
+    "projects": {
+      "heading": "Projkete"
     }
   }
 }

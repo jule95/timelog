@@ -36,7 +36,7 @@ const MyTimeLog = () => {
   return (
     <div>
       <Typography variant="h4">
-        {t(`navbar.myTimeLog`)}
+        {t(`myTimeLog.heading`)}
       </Typography>
 
       { (timeLogLoading || staffLoading) && (

@@ -6,7 +6,7 @@ export interface IStaffResponse {
 }
 
 export interface ITimeLogResponse {
-  timeLog: {
+  timeLogs: {
     id: number;
     day: string;
     hours: number;

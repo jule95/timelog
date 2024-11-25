@@ -6,6 +6,18 @@
       "employees": "Employees",
       "projects": "Projects",
       "home": "Home"
+    },
+    "home": {
+      "heading": "Hello!"
+    },
+    "myTimeLog": {
+      "heading": "My Time Log"
+    },
+    "employees": {
+      "heading": "Employees"
+    },
+    "projects": {
+      "heading": "Projects"
     }
   }
 }
