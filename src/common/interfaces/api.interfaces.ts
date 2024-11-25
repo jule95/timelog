@@ -10,10 +10,10 @@ export interface ITimeLogResponse {
     id: number;
     day: string;
     hours: number;
-    time_from: string;
-    time_to: string;
+    time_from: string | null;
+    time_to: string | null;
     project_name: string;
-    subject: string;
+    subject: string | null;
     staff_id: number;
     __typename: string;
   }[];
