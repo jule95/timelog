@@ -6,11 +6,13 @@ import AppState from './state/AppState.tsx';
 import './i18n.ts';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home/Home.tsx';
-import Page1 from './pages/page1/Page1.tsx';
+import MyTimeLog from './pages/MyTimeLog/MyTimeLog.tsx';
 import NotFound from './pages/NotFound/NotFound.tsx';
 import config from './config.ts';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './api/config.ts';
+import Projects from './pages/Projects/Projects.tsx';
+import Employees from './pages/Employees/Employees.tsx';
 
 // https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
@@ -19,8 +21,14 @@ const router = createBrowserRouter([
       element: <Home />,
       path: config.routes.home,
     }, {
-      element: <Page1 />,
-      path: config.routes.page1,
+      element: <MyTimeLog />,
+      path: config.routes.myTimeLog,
+    }, {
+      element: <Projects />,
+      path: config.routes.projects,
+    }, {
+      element: <Employees />,
+      path: config.routes.employees,
     }],
     element: <App />,
     errorElement: <NotFound />,

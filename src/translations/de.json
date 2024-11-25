@@ -1,6 +1,11 @@
 {
   "translation": {
-    "home": "Home",
-    "page1": "Seite 1"
+    "navbar": {
+      "timeLog": "Time Log",
+      "myTimeLog": "Mein Time Log",
+      "employees": "Mitarbeiter",
+      "projects": "Projekte",
+      "home": "Startseite"
+    }
   }
 }

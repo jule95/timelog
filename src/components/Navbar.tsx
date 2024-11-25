@@ -14,27 +14,33 @@ const Navbar = () => {
       <Toolbar sx={{ justifyContent: `space-between` }}>
         <Box sx={{ alignItems: `center`, display: `flex` }}>
           <Typography variant="h6">
-            LOGO
+            {t(`navbar.timeLog`)}
           </Typography>
         </Box>
 
         <Box sx={{ display: `flex`, gap: 2 }}>
           <Button
-            disableRipple
             color="inherit"
-            href={config.routes.home}>
-            {t(`home`)}
+            href={config.routes.myTimeLog}>
+            {t(`navbar.myTimeLog`)}
           </Button>
           <Button
             color="inherit"
-            href={config.routes.page1}>
-            {t(`page1`)}
+            href={config.routes.employees}>
+            {t(`navbar.employees`)}
+          </Button>
+          <Button
+            color="inherit"
+            href={config.routes.projects}>
+            {t(`navbar.projects`)}
+          </Button>
+          <Button
+            disableRipple
+            color="inherit"
+            href={config.routes.home}>
+            {t(`navbar.home`)}
           </Button>
         </Box>
-
-        <Typography variant="h6">
-          Company Name
-        </Typography>
       </Toolbar>
     </AppBar>
   );

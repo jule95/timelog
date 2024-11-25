@@ -4,7 +4,9 @@ const config = {
   },
   routes: {
     home: `/`,
-    page1: `/page1`,
+    myTimeLog: `/myTimeLog`,
+    employees: `/employees`,
+    projects: `/projects`,
   },
 };
 
