@@ -9,6 +9,8 @@ import Home from './pages/Home/Home.tsx';
 import Page1 from './pages/page1/Page1.tsx';
 import NotFound from './pages/NotFound/NotFound.tsx';
 import config from './config.ts';
+import { ApolloProvider } from '@apollo/client';
+import { client } from './api/config.ts';
 
 // https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
@@ -28,7 +30,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById(`root`)!).render(
   <AppState>
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <ApolloProvider client={client}>
+        <RouterProvider router={router} />
+      </ApolloProvider>
     </React.StrictMode>
   </AppState>
 );
