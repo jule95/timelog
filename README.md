@@ -19,3 +19,4 @@ Fix:<br/>
 - Styles
 - Error Handling
 - ESLint
+- Camel Case
