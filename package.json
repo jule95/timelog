@@ -8,7 +8,8 @@
     "ts": "tsc --noEmit --watch",
     "start:db": "json-server --watch src/db.json --port 3001",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@apollo/client": "^3.11.10",
@@ -28,6 +29,7 @@
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
+    "@jule95/eslint-config-jule95": "file:../Web Projects/eslint-config/jule95-eslint-config-jule95-1.0.6.tgz",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",

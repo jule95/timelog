@@ -3,9 +3,9 @@ const config = {
     users: `/users`,
   },
   routes: {
+    employees: `/employees`,
     home: `/`,
     myTimeLog: `/myTimeLog`,
-    employees: `/employees`,
     projects: `/projects`,
   },
 };
