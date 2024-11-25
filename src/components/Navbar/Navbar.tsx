@@ -3,7 +3,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import config from '../config.ts';
+import config from '../../config.ts';
 import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
