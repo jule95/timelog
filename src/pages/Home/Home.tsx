@@ -10,7 +10,7 @@ const Home = () => {
         {t(`home.heading`)}
       </Typography>
     </div>
-  )
-}
+  );
+};
 
 export default Home;

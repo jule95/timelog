@@ -10,7 +10,7 @@ const Projects = () => {
         {t(`projects.heading`)}
       </Typography>
     </div>
-  )
-}
+  );
+};
 
 export default Projects;

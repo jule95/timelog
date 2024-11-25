@@ -9,16 +9,16 @@ const errorLink = onError((errorResponse) => {
   if (errorResponse.graphQLErrors) {
     errorResponse.graphQLErrors.forEach(error => {
       console.log(error.message);
-    })
+    });
   }
 });
 
 const link = from([
   errorLink,
-  new HttpLink({ uri: import.meta.env.VITE_API_BASE_URL })
-])
+  new HttpLink({ uri: import.meta.env.VITE_API_BASE_URL }),
+]);
 
 export const client = new ApolloClient({
   cache: new InMemoryCache(),
   link,
-})
+});

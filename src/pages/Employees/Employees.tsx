@@ -25,7 +25,7 @@ const Employees = () => {
       </Typography>
 
       { loading && (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: `flex` }}>
           <CircularProgress />
         </Box>
       )}
@@ -45,7 +45,7 @@ const Employees = () => {
         </TableContainer>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default Employees;
