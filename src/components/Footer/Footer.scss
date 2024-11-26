@@ -1,0 +1,23 @@
+.Footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 160px);
+  padding: 52px 80px;
+  border-top: 1px solid #E6E6E6;
+
+  &__label {
+    font-size: 24px !important;
+  }
+
+  &__logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 70px;
+  }
+
+  &__logos-logo {
+    margin-right: 32px;
+  }
+}
