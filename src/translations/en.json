@@ -11,7 +11,13 @@
       "heading": "Hello!"
     },
     "myTimeLog": {
-      "heading": "My Time Log"
+      "date": "Date",
+      "description": "Description",
+      "employee": "Employee",
+      "heading": "My Time Log",
+      "hours": "Hours",
+      "project": "Project",
+      "save": "Save"
     },
     "employees": {
       "heading": "Employees"

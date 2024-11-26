@@ -11,13 +11,19 @@
       "heading": "Hallo!"
     },
     "myTimeLog": {
-      "heading": "Mein Time Log"
+      "date": "Datum",
+      "description": "Beschreibung",
+      "employee": "Mitarbeiter",
+      "heading": "Mein Time Log",
+      "hours": "Stunden",
+      "project": "Projekt",
+      "save": "Speichern"
     },
     "employees": {
       "heading": "Mitarbeiter"
     },
     "projects": {
-      "heading": "Projkete"
+      "heading": "Projekte"
     }
   }
 }
