@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/client';
 import { IStaffResponse, ITimeLogResponse } from '../../common/interfaces/api.interfaces.ts';
 import { LOAD_STAFF, LOAD_TIME_LOGS } from '../../api/Queries.ts';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { IMyTimeLogState } from './MyTimeLog.types.ts';
-import TimeLogForm from '../../components/TimeLogForm/TimeLogForm.tsx';
+import Heading from '../../components/Heading/Heading.tsx';
+import './MyTimeLog.scss';
 
 const MyTimeLog = () => {
   const { t } = useTranslation();
@@ -31,35 +31,31 @@ const MyTimeLog = () => {
   }, [timeLogData, staffData]);
 
   return (
-    <div>
-      <Typography variant="h4">
-        {t(`myTimeLog.heading`)}
-      </Typography>
+    <div className="MyTimeLog">
+      <Heading title={t(`myTimeLog.heading`)} />
 
       { (timeLogLoading || staffLoading) && (
-        <Box sx={{ display: `flex` }}>
-          <CircularProgress />
+        <Box>
+          <CircularProgress className="MyTimeLog__loading"  />
         </Box>
       )}
 
       { timeLogData && (
-        <TableContainer component={Paper}>
-          <Table aria-label="simple table">
-            <TableBody>
-              {state.map(row => (
-                <TableRow key={row.id}>
-                  <TableCell>{row.day}</TableCell>
-                  <TableCell>{row.hours}</TableCell>
-                  <TableCell>{row.name}</TableCell>
-                  <TableCell>{row.project}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <table className="MyTimeLog__table">
+          <tbody>
+            {state.map(row => (
+              <tr
+                key={row.id}
+                className="MyTimeLog__table-row">
+                <td>{row.day}</td>
+                <td>{row.hours}</td>
+                <td>{row.name}</td>
+                <td>{row.project}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
-
-      <TimeLogForm />
     </div>
   );
 };
