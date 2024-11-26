@@ -7,11 +7,11 @@ export interface IStateAction {
 }
 
 export interface IAppState {
-  message: string;
+  newEntry: boolean;
 }
 
 export interface IAppActions {
-  setMessage: (payload: string) => void;
+  setNewEntry: (payload: boolean) => void;
 }
 
 export interface IAppContext {

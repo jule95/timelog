@@ -4,8 +4,8 @@ import { EMessageActions } from '../common/enums/state.enums';
 
 const appReducer = produce((draft: IAppState, action: IStateAction) => {
   switch (action.type) {
-    case EMessageActions.SET_MESSAGE:
-      draft.message = action.payload;
+    case EMessageActions.SET_NEW_ENTRY:
+      draft.newEntry = action.payload;
       break;
     default:
   }

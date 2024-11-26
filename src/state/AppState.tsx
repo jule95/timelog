@@ -7,12 +7,12 @@ import { EMessageActions } from '../common/enums/state.enums';
 const AppState:FC<{ children: ReactElement}> = props => {
   const [state, dispatch] = useReducer(appReducer, initState);
 
-  const setMessage = (payload: string) => {
-    dispatch({ payload, type: EMessageActions.SET_MESSAGE });
+  const setNewEntry = (payload: boolean) => {
+    dispatch({ payload, type: EMessageActions.SET_NEW_ENTRY });
   };
 
   const actions: IAppActions = {
-    setMessage,
+    setNewEntry,
   };
 
   return (

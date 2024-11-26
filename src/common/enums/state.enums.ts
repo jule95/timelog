@@ -1,3 +1,3 @@
 export enum EMessageActions {
-  SET_MESSAGE,
+  SET_NEW_ENTRY,
 }
