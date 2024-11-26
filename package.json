@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.15.18",
     "@mui/material": "^5.15.18",
     "axios": "^1.6.8",
+    "date-fns": "^4.1.0",
     "graphql": "^16.9.0",
     "i18next": "^23.11.4",
     "i18next-browser-languagedetector": "^7.2.1",

@@ -1,7 +1,7 @@
 import './App.scss';
 import { Outlet } from 'react-router-dom';
 import './App.scss';
-import Navbar from './components/Navbar.tsx';
+import Navbar from './components/Navbar/Navbar.tsx';
 import { Container } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 
