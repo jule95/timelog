@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import { CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { IMyTimeLogState } from './MyTimeLog.types.ts';
+import TimeLogForm from '../../components/TimeLogForm/TimeLogForm.tsx';
 
 const MyTimeLog = () => {
   const { t } = useTranslation();
@@ -20,17 +21,13 @@ const MyTimeLog = () => {
       return;
     }
 
-    setState(timeLogData.timeLogs.map(item => {
-      return {
-        id: item.id,
-        day: item.day,
-        hours: item.hours,
-        project: item.project_name,
-        name: staffData.staff.find(staffItem => staffItem.id === item.staff_id)?.name ?? `-`,
-      }
-    }))
-
-    console.log(timeLogData, staffData);
+    setState(timeLogData.timeLogs.map(item => ({
+      day: item.day,
+      hours: item.hours,
+      id: item.id,
+      name: staffData.staff.find(staffItem => staffItem.id === item.staff_id)?.name ?? `-`,
+      project: item.project_name,
+    })));
   }, [timeLogData, staffData]);
 
   return (
@@ -40,7 +37,7 @@ const MyTimeLog = () => {
       </Typography>
 
       { (timeLogLoading || staffLoading) && (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: `flex` }}>
           <CircularProgress />
         </Box>
       )}
@@ -61,7 +58,9 @@ const MyTimeLog = () => {
           </Table>
         </TableContainer>
       )}
+
+      <TimeLogForm />
     </div>
-  )
-}
+  );
+};
 export default MyTimeLog;
