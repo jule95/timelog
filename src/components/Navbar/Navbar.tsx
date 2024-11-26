@@ -5,38 +5,40 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import config from '../../config.ts';
 import { useTranslation } from 'react-i18next';
+import './Navbar.scss';
 
 const Navbar = () => {
   const { t } = useTranslation();
 
   return (
-    <AppBar position="absolute">
-      <Toolbar sx={{ justifyContent: `space-between` }}>
-        <Box sx={{ alignItems: `center`, display: `flex` }}>
-          <Typography variant="h6">
+    <AppBar
+      className="Navbar"
+      elevation={0}>
+      <Toolbar className="Navbar__toolbar">
+        <Box>
+          <Typography className="Navbar__toolbar-title">
             {t(`navbar.timeLog`)}
           </Typography>
         </Box>
 
-        <Box sx={{ display: `flex`, gap: 2 }}>
+        <Box>
           <Button
-            color="inherit"
+            className="Navbar__toolbar-button"
             href={config.routes.myTimeLog}>
             {t(`navbar.myTimeLog`)}
           </Button>
           <Button
-            color="inherit"
+            className="Navbar__toolbar-button"
             href={config.routes.employees}>
             {t(`navbar.employees`)}
           </Button>
           <Button
-            color="inherit"
+            className="Navbar__toolbar-button"
             href={config.routes.projects}>
             {t(`navbar.projects`)}
           </Button>
           <Button
-            disableRipple
-            color="inherit"
+            className="Navbar__toolbar-button Navbar__toolbar-button--home"
             href={config.routes.home}>
             {t(`navbar.home`)}
           </Button>
