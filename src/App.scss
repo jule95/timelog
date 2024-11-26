@@ -9,16 +9,16 @@
     position: relative;
     max-width: 100% !important;
     min-height: 1000px;
+    display: flex !important;
   }
 
   &__avatar {
     width: 322px;
     height: 408px;
-    position: absolute;
-    top: 0;
-    right: 80px;
     background-size: cover;
     background-position: center;
+    margin-left: auto;
+    position: relative;
   }
 
   &__avatar-button {
