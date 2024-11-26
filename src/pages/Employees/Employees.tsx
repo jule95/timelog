@@ -3,16 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/client';
 import { IStaffResponse } from '../../common/interfaces/api.interfaces.ts';
 import { LOAD_STAFF } from '../../api/Queries.ts';
-import {
-  CircularProgress,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow
-} from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import Box from '@mui/material/Box';
+import './Employees.scss';
 
 const Employees = () => {
   const { t } = useTranslation();
@@ -31,18 +24,18 @@ const Employees = () => {
       )}
 
       { data && (
-        <TableContainer component={Paper}>
-          <Table aria-label="simple table">
-            <TableBody>
-              {data.staff.map((row) => (
-                <TableRow key={row.id}>
-                  <TableCell>{row.id}</TableCell>
-                  <TableCell>{row.name}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <table className="Employees__table">
+          <tbody>
+            {data.staff.map(row => (
+              <tr
+                key={row.id}
+                className="Employees__table-row">
+                <td>{row.id}</td>
+                <td>{row.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

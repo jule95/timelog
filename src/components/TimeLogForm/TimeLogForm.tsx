@@ -12,6 +12,7 @@ import { ICreateTimeLogData, ICreateTimeLogResponse, IStaffResponse } from '../.
 import { LOAD_STAFF } from '../../api/Queries.ts';
 import { CREATE_TIME_LOG_MUTATION } from '../../api/Mutations.ts';
 import { addHours, format } from 'date-fns';
+import './TimeLogForm.scss';
 
 const TimeLogForm = () => {
   const { data } = useQuery<IStaffResponse>(LOAD_STAFF);
@@ -20,7 +21,8 @@ const TimeLogForm = () => {
     values: {
       date: ``,
       description: ``,
-      employee: 0,
+      // @ts-expect-error 2322
+      employee: null,
       hours: 1,
       project: ``,
     },
@@ -74,8 +76,8 @@ const TimeLogForm = () => {
 
   return (
     <Box
+      className="TimeLogForm"
       component="form"
-      sx={{ gap: 2, width: `500px` }}
       onSubmit={handleSubmit}>
       <Grid
         container
@@ -128,7 +130,9 @@ const TimeLogForm = () => {
         </GridItem>
         <GridItem full>
           <Button
+            disableRipple
             fullWidth
+            className="TimeLogForm__button"
             color="primary"
             type="submit"
             variant="contained">

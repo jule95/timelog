@@ -1,2 +1,33 @@
 .App {
+  &__toolbar {
+    height: 244px;
+  }
+
+  &__container {
+    padding: 0 80px !important;
+    margin: 0 !important;
+    position: relative;
+    max-width: 100% !important;
+    min-height: 1000px;
+  }
+
+  &__avatar {
+    width: 322px;
+    height: 408px;
+    position: absolute;
+    top: 0;
+    right: 80px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__avatar-button {
+    position: absolute !important;
+    top: 13px;
+    left: 10px;
+    background: black !important;
+    padding: 12px 24px !important;
+    color: white !important;
+    border-radius: 8px !important;
+  }
 }

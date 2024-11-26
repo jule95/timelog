@@ -1,5 +1,8 @@
 {
   "translation": {
+    "app": {
+      "newEntry": "New Entry"
+    },
     "navbar": {
       "timeLog": "Time Log",
       "myTimeLog": "My Time Log",
