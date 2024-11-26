@@ -21,8 +21,7 @@ const TimeLogForm = () => {
     values: {
       date: ``,
       description: ``,
-      // @ts-expect-error 2322
-      employee: null,
+      employee: ``,
       hours: 1,
       project: ``,
     },
@@ -50,7 +49,7 @@ const TimeLogForm = () => {
         day: formState.values.date,
         hours: formState.values.hours,
         projectName: formState.values.project,
-        staffId: formState.values.employee,
+        staffId: parseInt(formState.values.employee),
         subject: formState.values.description,
         timeFrom: format(new Date(), `HH:mm`),
         timeTo: format(addHours(new Date(), formState.values.hours), `HH:mm`),
@@ -70,7 +69,7 @@ const TimeLogForm = () => {
   };
 
   // Handling this separately for TS typings.
-  const handleEmployeeChange = (value: number) => {
+  const handleEmployeeChange = (value: string) => {
     setFormState(produce(draft => { draft.values.employee = value; }));
   };
 

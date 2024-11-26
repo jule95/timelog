@@ -1,8 +1,8 @@
 export interface IStaffSelectProps {
   label: string;
-  onChange: (value: number) => void,
+  onChange: (value: string) => void,
   options: IStaffSelectOption[];
-  value: number;
+  value: string;
 }
 
 interface IStaffSelectOption {

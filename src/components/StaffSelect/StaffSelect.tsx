@@ -10,7 +10,7 @@ const StaffSelect: FC<IStaffSelectProps> = props => (
       labelId="custom-select-label"
       value={props.value}
       variant="outlined"
-      onChange={(event) => props.onChange(event.target.value as number)}>
+      onChange={(event) => props.onChange(event.target.value)}>
       {props.options.map((item, index) => (
         <MenuItem
           key={`menu-item-${index}`}

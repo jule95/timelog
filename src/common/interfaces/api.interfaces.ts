@@ -10,8 +10,8 @@ export interface ITimeLogResponse {
     id: number;
     day: string;
     hours: number;
-    time_from: string | null;
-    time_to: string | null;
+    time_from: string;
+    time_to: string;
     project_name: string;
     subject: string | null;
     staff_id: number;
@@ -24,8 +24,8 @@ export interface ICreateTimeLogResponse {
     id: number;
     day: string;
     hours: number;
-    time_from: string | null;
-    time_to: string | null;
+    time_from: string;
+    time_to: string;
     project_name: string;
     subject: string | null;
     staff_id: number;
@@ -36,8 +36,8 @@ export interface ICreateTimeLogResponse {
 export interface ICreateTimeLogData {
   day: string;
   hours: number;
-  timeFrom?: string;
-  timeTo?: string;
+  timeFrom: string;
+  timeTo: string;
   projectName: string;
   subject?: string;
   staffId: number;

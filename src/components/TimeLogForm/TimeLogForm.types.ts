@@ -1,7 +1,7 @@
 export interface ITimeLogFormState {
   values: {
     date: string;
-    employee: number;
+    employee: string;
     hours: number;
     project: string;
     description: string;
