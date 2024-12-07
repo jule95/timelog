@@ -1,0 +1,18 @@
+.Avatar {
+    width: 322px;
+    height: 408px;
+    background-size: cover;
+    background-position: center;
+    margin-left: auto;
+    position: relative;
+
+  &__button {
+    position: absolute !important;
+    top: 13px;
+    left: 10px;
+    background: black !important;
+    padding: 12px 24px !important;
+    color: white !important;
+    border-radius: 8px !important;
+  }
+}

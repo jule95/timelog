@@ -11,7 +11,7 @@ export interface IAppState {
 }
 
 export interface IAppActions {
-  setNewEntry: (payload: boolean) => void;
+  toggleNewEntry: () => void;
 }
 
 export interface IAppContext {

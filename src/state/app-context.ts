@@ -7,7 +7,7 @@ export const initState: IAppState = {
 
 const AppContext = createContext<IAppContext>({
   actions: {
-    setNewEntry: () => {},
+    toggleNewEntry: () => {},
   },
   state: {
     newEntry: false,
