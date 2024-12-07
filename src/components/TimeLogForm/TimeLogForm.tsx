@@ -42,6 +42,7 @@ const TimeLogForm = () => {
 
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    // ToDo: Add new time log to table.
     event.preventDefault();
 
     void createTimeLog({
