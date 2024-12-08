@@ -27,6 +27,9 @@
     },
     "projects": {
       "heading": "Projekte"
+    },
+    "footer": {
+      "company": "Time Log Inc"
     }
   }
 }
