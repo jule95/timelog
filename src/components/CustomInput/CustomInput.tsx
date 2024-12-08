@@ -9,6 +9,7 @@ const CustomInput: FC<ICustomInputProps> = ({
   label,
   onChange,
   value,
+  name,
   fullWidth = false,
   type = `text`,
 }) => (
@@ -19,7 +20,7 @@ const CustomInput: FC<ICustomInputProps> = ({
     <label htmlFor={id}>{label}</label>
     <InputText
       id={id}
-      name="hours"
+      name={name}
       type={type}
       value={value}
       variant="outlined"
