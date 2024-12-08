@@ -15,8 +15,9 @@ const Footer: FC<IFooterProps> = ({ className = `` }) => {
     ])}>
       <h1 className="Footer__company">{t(`footer.company`)}</h1>
       <div className="Footer__logos">
-        {logos.map(logo => (
+        {logos.map((logo, index) => (
           <a
+            key={`footer-key-${index}`}
             href={logo.link}
             target="_blank">
             <img
