@@ -1,9 +1,9 @@
 export interface ICustomInputProps {
-  id: string;
   fullWidth?: boolean;
+  id: string;
   label: string;
-  value: string | number;
+  name: string;
   onChange: (value: string | number, name: string) => void;
   type?: `text` | `number`;
-  name: string;
+  value: string | number;
 }
