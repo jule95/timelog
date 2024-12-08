@@ -12,20 +12,26 @@ const CustomInput: FC<ICustomInputProps> = ({
   name,
   fullWidth = false,
   type = `text`,
-}) => (
-  <div className={ComponentHelper.className([
-    `CustomInput`,
-    (fullWidth || false) && `CustomInput--full-width`,
-  ])}>
-    <label htmlFor={id}>{label}</label>
-    <InputText
-      id={id}
-      name={name}
-      type={type}
-      value={value}
-      variant="outlined"
-      onChange={event => onChange(event.target.value, event.target.name)} />
-  </div>
-);
+}) => {
+  const handleChange = (value: string, name: string) => {
+    onChange(type === `number` ? parseInt(value) : value, name);
+  };
+
+  return (
+    <div className={ComponentHelper.className([
+      `CustomInput`,
+      (fullWidth || false) && `CustomInput--full-width`,
+    ])}>
+      <label htmlFor={id}>{label}</label>
+      <InputText
+        id={id}
+        name={name}
+        type={type}
+        value={value.toString()}
+        variant="outlined"
+        onChange={event => handleChange(event.target.value, event.target.name)} />
+    </div>
+  );
+};
 
 export default CustomInput;

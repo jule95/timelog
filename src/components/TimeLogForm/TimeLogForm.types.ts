@@ -2,7 +2,7 @@ export interface ITimeLogFormState {
   values: {
     date: string;
     employee: ITimeLogOption | null;
-    hours: string;
+    hours: number;
     project: string;
     description: string;
   }

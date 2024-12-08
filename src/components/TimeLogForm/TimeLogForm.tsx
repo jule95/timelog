@@ -20,7 +20,7 @@ const TimeLogForm = () => {
       date: ``,
       description: ``,
       employee: null,
-      hours: `1`,
+      hours: 1,
       project: ``,
     },
   });
@@ -46,17 +46,17 @@ const TimeLogForm = () => {
     void createTimeLog({
       variables: {
         day: formState.values.date,
-        hours: parseInt(formState.values.hours),
+        hours: formState.values.hours,
         projectName: formState.values.project,
         staffId: formState.values.employee?.code ?? -1,
         subject: formState.values.description,
         timeFrom: format(new Date(), `HH:mm`),
-        timeTo: format(addHours(new Date(), parseInt(formState.values.hours)), `HH:mm`),
+        timeTo: format(addHours(new Date(),formState.values.hours), `HH:mm`),
       },
     });
   };
 
-  const handleChange = (value: string | ITimeLogOption, name: string) => {
+  const handleChange = (value: string | number | ITimeLogOption, name: string) => {
     setFormState(produce(draft => {
       // @ts-expect-error TS7053
       draft.values[name] = value;
