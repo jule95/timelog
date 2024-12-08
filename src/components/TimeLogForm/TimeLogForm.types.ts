@@ -1,7 +1,7 @@
 export interface ITimeLogFormState {
   values: {
     date: string;
-    employee: string;
+    employee: ITimeLogOption | null;
     hours: string;
     project: string;
     description: string;
@@ -9,6 +9,6 @@ export interface ITimeLogFormState {
 }
 
 export interface ITimeLogOption {
-  code: string;
+  code: number;
   name: string;
 }

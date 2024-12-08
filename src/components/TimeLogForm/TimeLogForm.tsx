@@ -19,7 +19,7 @@ const TimeLogForm = () => {
     values: {
       date: ``,
       description: ``,
-      employee: ``,
+      employee: null,
       hours: `1`,
       project: ``,
     },
@@ -33,7 +33,7 @@ const TimeLogForm = () => {
     }
 
     setOptions(data.staff.map(item => ({
-      code: item.id.toString(),
+      code: item.id,
       name: item.name,
     })));
   }, [data]);
@@ -48,7 +48,7 @@ const TimeLogForm = () => {
         day: formState.values.date,
         hours: parseInt(formState.values.hours),
         projectName: formState.values.project,
-        staffId: parseInt(formState.values.employee),
+        staffId: formState.values.employee?.code ?? -1,
         subject: formState.values.description,
         timeFrom: format(new Date(), `HH:mm`),
         timeTo: format(addHours(new Date(), parseInt(formState.values.hours)), `HH:mm`),
@@ -56,7 +56,7 @@ const TimeLogForm = () => {
     });
   };
 
-  const handleChange = (value: string, name: string) => {
+  const handleChange = (value: string | ITimeLogOption, name: string) => {
     setFormState(produce(draft => {
       // @ts-expect-error TS7053
       draft.values[name] = value;
