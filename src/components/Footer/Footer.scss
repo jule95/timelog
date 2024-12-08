@@ -1,23 +1,25 @@
 .Footer {
-  border-top: 1px solid #E6E6E6;
-  bottom: 0;
-  padding: 52px 80px;
   position: absolute;
-  right: 0;
+  bottom: 0;
+  left: 80px;
   width: calc(100% - 160px);
+  border-top: 1px solid #E6E6E6;
+  padding: 52px 0 88px 0;
 
-  &__label {
-    font-size: 24px !important;
+  &__company {
+    font-size: 24px;
+    padding: 0;
+    font-weight: 400;
+    margin: 0 0 88px 0;
   }
 
   &__logos {
-    align-items: center;
     display: flex;
-    flex-direction: row;
-    margin-top: 70px;
+    align-items: center;
   }
 
   &__logos-logo {
-    margin-right: 32px;
+    width: 20px;
+    margin-right: 20px;
   }
 }
