@@ -14,9 +14,9 @@
       "heading": "Hallo!"
     },
     "myTimeLog": {
-      "date": "Datum",
+      "date": "Wann?",
       "description": "Beschreibung",
-      "employee": "Mitarbeiter",
+      "employee": "Wer?",
       "heading": "Mein Time Log",
       "hours": "Stunden",
       "project": "Projekt",
