@@ -11,8 +11,8 @@ const App = () => (
     <PrimeReactProvider>
       <Navbar />
       <div className="App__content">
-        <Outlet />
         <Avatar />
+        <Outlet />
       </div>
       <Footer />
     </PrimeReactProvider>

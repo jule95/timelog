@@ -1,9 +1,14 @@
 .App {
   margin-top: 244px;
-  padding: 0 80px;
+  padding: 0 16px;
 
   &__content {
-    display: flex;
-    justify-content: space-between;
+    max-width: 1200px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $tablet) {
+    padding: 0 80px;
   }
 }

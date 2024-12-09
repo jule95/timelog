@@ -1,10 +1,17 @@
 .Avatar {
-    width: 322px;
-    height: 408px;
     background-size: cover;
     background-position: center;
-    position: relative;
     border-radius: 8px;
+    width: 200px;
+    height: 253px;
+    position: relative;
+
+  @media (min-width: $tablet) {
+    position: absolute;
+    right: 0;
+    width: 322px;
+    height: 408px;
+  }
 
     &__button {
       position: absolute;
