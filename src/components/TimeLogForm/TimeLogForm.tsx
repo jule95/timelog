@@ -12,6 +12,9 @@ import { Button } from 'primereact/button';
 import CustomInput from '../CustomInput/CustomInput.tsx';
 import CustomSelect from '../CustomSelect/CustomSelect.tsx';
 import AppContext from '../../state/app-context.ts';
+import Datepicker from '../Datepicker/Datepicker.tsx';
+import { Nullable } from 'primereact/ts-helpers';
+import CustomTextarea from '../CustomTextarea/CustomTextarea.tsx';
 
 const TimeLogForm = () => {
   const { data: staffData } = useQuery<IStaffResponse>(LOAD_STAFF);
@@ -21,7 +24,7 @@ const TimeLogForm = () => {
   const { actions } = useContext(AppContext);
   const [formState, setFormState] = useState<ITimeLogFormState>({
     values: {
-      date: ``,
+      date: new Date(),
       description: ``,
       employee: null,
       hours: 1,
@@ -34,10 +37,16 @@ const TimeLogForm = () => {
       return;
     }
 
-    setEmployees(staffData.staff.map(item => ({
+    const tempEmployees = staffData.staff.map(item => ({
       code: item.id,
       name: item.name,
-    })));
+    }));
+
+    setEmployees(tempEmployees);
+
+    setFormState(produce(draft => {
+      draft.values.employee = tempEmployees[0];
+    }));
   }, [staffData]);
 
   useEffect(() => {
@@ -60,7 +69,7 @@ const TimeLogForm = () => {
 
     void createTimeLog({
       variables: {
-        day: formState.values.date,
+        day: format(formState.values.date, `dd.MM.yyyy`),
         hours: formState.values.hours,
         projectName: formState.values.project,
         staffId: formState.values.employee?.code ?? -1,
@@ -71,7 +80,7 @@ const TimeLogForm = () => {
     });
   };
 
-  const handleChange = (value: string | number | ITimeLogOption, name: string) => {
+  const handleChange = (value: string | number | Nullable<Date> | ITimeLogOption, name: string) => {
     setFormState(produce(draft => {
       // @ts-expect-error TS7053
       draft.values[name] = value;
@@ -84,7 +93,7 @@ const TimeLogForm = () => {
       <form
         className="TimeLogForm__form"
         onSubmit={handleSubmit}>
-        <CustomInput
+        <Datepicker
           id="date"
           label={t(`myTimeLog.date`)}
           name="date"
@@ -95,7 +104,6 @@ const TimeLogForm = () => {
           label={t(`myTimeLog.employee`)}
           name="employee"
           options={employees}
-          placeholder="[PLACEHOLDER]"
           value={formState.values.employee}
           onChange={handleChange} />
         <CustomInput
@@ -109,17 +117,19 @@ const TimeLogForm = () => {
           id="project"
           label={t(`myTimeLog.project`)}
           name="project"
+          placeholder={t(`myTimeLog.placeholderProject`)}
           value={formState.values.project}
           onChange={handleChange} />
-        <CustomInput
-          fullWidth
+        <CustomTextarea
           id="description"
           label={t(`myTimeLog.description`)}
           name="description"
+          placeholder={t(`myTimeLog.placeholderDescription`)}
           value={formState.values.description}
           onChange={handleChange} />
         <Button
           className="TimeLogForm__form-button"
+          disabled={!formState.values.project || !formState.values.description}
           label={t(`myTimeLog.save`)}
           loading={timeLogLoading}
           type="submit" />

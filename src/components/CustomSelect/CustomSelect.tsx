@@ -11,7 +11,6 @@ const CustomSelect: FC<ICustomSelectProps> = (props) => (
       name={props.name}
       optionLabel="name"
       options={props.options}
-      placeholder={props.placeholder}
       value={props.value}
       onChange={event => props.onChange(event.target.value, event.target.name)} />
   </div>

@@ -6,6 +6,5 @@ export interface ICustomSelectProps {
   name: string;
   onChange: (value: ITimeLogOption, name: string) => void;
   options: ITimeLogOption[];
-  placeholder: string;
   value: ITimeLogOption | null;
 }
