@@ -7,4 +7,6 @@ export interface ICustomInputProps {
   type?: `text` | `number`;
   value: string | number;
   placeholder?: string;
+  invalid?: boolean;
+  required?: boolean;
 }

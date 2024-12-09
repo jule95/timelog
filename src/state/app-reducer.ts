@@ -9,6 +9,7 @@ const appReducer = produce((draft: IAppState, action: IStateAction) => {
       break;
     case EStateActions.ADD_TIME_LOG:
       draft.timeLogs.push(action.payload);
+      draft.newEntry = false;
       break;
     case EStateActions.SET_TIME_LOGS:
       draft.timeLogs = action.payload;

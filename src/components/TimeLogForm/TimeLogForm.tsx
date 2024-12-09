@@ -107,14 +107,18 @@ const TimeLogForm = () => {
           value={formState.values.employee}
           onChange={handleChange} />
         <CustomInput
+          required
           id="hours"
+          invalid={!formState.values.hours}
           label={t(`myTimeLog.hours`)}
           name="hours"
           type="number"
           value={formState.values.hours}
           onChange={handleChange} />
         <CustomInput
+          required
           id="project"
+          invalid={!formState.values.project}
           label={t(`myTimeLog.project`)}
           name="project"
           placeholder={t(`myTimeLog.placeholderProject`)}
@@ -122,6 +126,7 @@ const TimeLogForm = () => {
           onChange={handleChange} />
         <CustomTextarea
           id="description"
+          invalid={!formState.values.description}
           label={t(`myTimeLog.description`)}
           name="description"
           placeholder={t(`myTimeLog.placeholderDescription`)}
