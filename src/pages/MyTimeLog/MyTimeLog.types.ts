@@ -1,4 +1,4 @@
-export interface IMyTimeLogState {
+export interface ITimeLog {
   id: number;
   day: string;
   hours: number;

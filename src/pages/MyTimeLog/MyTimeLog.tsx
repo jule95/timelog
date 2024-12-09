@@ -2,28 +2,26 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/client';
 import { IStaffResponse, ITimeLogResponse } from '../../common/interfaces/api.interfaces.ts';
 import { LOAD_STAFF, LOAD_TIME_LOGS } from '../../api/Queries.ts';
-import Box from '@mui/material/Box';
-import { CircularProgress } from '@mui/material';
-import { useContext, useEffect, useState } from 'react';
-import { IMyTimeLogState } from './MyTimeLog.types.ts';
-import Heading from '../../components/Heading/Heading.tsx';
+import { ProgressSpinner } from 'primereact/progressspinner';
+import { useContext, useEffect } from 'react';
 import './MyTimeLog.scss';
-import AppContext from '../../state/app-context.ts';
 import TimeLogForm from '../../components/TimeLogForm/TimeLogForm.tsx';
+import { Column } from 'primereact/column';
+import { DataTable } from 'primereact/datatable';
+import AppContext from '../../state/app-context.ts';
 
 const MyTimeLog = () => {
   const { t } = useTranslation();
   const { data: timeLogData, loading: timeLogLoading } = useQuery<ITimeLogResponse>(LOAD_TIME_LOGS);
   const { data: staffData, loading: staffLoading } = useQuery<IStaffResponse>(LOAD_STAFF);
-  const [state, setState] = useState<IMyTimeLogState[]>([]);
-  const { state: appState } = useContext(AppContext);
+  const { state, actions } = useContext(AppContext);
 
   useEffect(() => {
     if (!timeLogData || !staffData) {
       return;
     }
 
-    setState(timeLogData.timeLogs.map(item => ({
+    actions.setTimeLogs(timeLogData.timeLogs.map(item => ({
       day: item.day,
       hours: item.hours,
       id: item.id,
@@ -34,32 +32,32 @@ const MyTimeLog = () => {
 
   return (
     <div className="MyTimeLog">
-      <Heading title={t(`myTimeLog.heading`)} />
+      <h1 className="page-heading">{t(`myTimeLog.heading`)}</h1>
 
       { (timeLogLoading || staffLoading) && (
-        <Box>
-          <CircularProgress className="MyTimeLog__loading"  />
-        </Box>
+        <ProgressSpinner className="MyTimeLog__loading"  />
       )}
 
       { timeLogData && (
-        <table className="MyTimeLog__table">
-          <tbody>
-            {state.map(row => (
-              <tr
-                key={row.id}
-                className="MyTimeLog__table-row">
-                <td>{row.day}</td>
-                <td>{row.hours}</td>
-                <td>{row.name}</td>
-                <td>{row.project}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <DataTable
+          tableStyle={{ width: `500px` }}
+          value={state.timeLogs}>
+          <Column
+            field="day"
+            headerStyle={{ display: `none` }}></Column>
+          <Column
+            field="hours"
+            headerStyle={{ display: `none` }}></Column>
+          <Column
+            field="name"
+            headerStyle={{ display: `none` }}></Column>
+          <Column
+            field="project"
+            headerStyle={{ display: `none` }}></Column>
+        </DataTable>
       )}
 
-      {appState.newEntry && <TimeLogForm />}
+      {state.newEntry &&  <TimeLogForm />}
     </div>
   );
 };
