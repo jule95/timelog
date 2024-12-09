@@ -31,3 +31,4 @@ New:<br/>
 - Styles
 - Error Handling
 - Form Validation: https://www.primefaces.org/primereact-v8/reactfinalform/
+- Responsive Design
