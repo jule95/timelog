@@ -6,4 +6,5 @@ export interface ICustomInputProps {
   onChange: (value: string | number, name: string) => void;
   type?: `text` | `number`;
   value: string | number;
+  placeholder?: string;
 }

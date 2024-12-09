@@ -12,6 +12,7 @@ const CustomInput: FC<ICustomInputProps> = ({
   name,
   fullWidth = false,
   type = `text`,
+  placeholder = ``,
 }) => {
   const handleChange = (value: string, name: string) => {
     onChange(type === `number` ? parseInt(value) : value, name);
@@ -26,6 +27,7 @@ const CustomInput: FC<ICustomInputProps> = ({
       <InputText
         id={id}
         name={name}
+        placeholder={placeholder}
         type={type}
         value={value.toString()}
         variant="outlined"
