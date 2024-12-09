@@ -80,7 +80,7 @@ const TimeLogForm = () => {
 
   return (
     <div className="TimeLogForm">
-      <h1>{t(`app.newEntry`)}</h1>
+      <h1 className="TimeLogForm__heading">{t(`app.newEntry`)}</h1>
       <form
         className="TimeLogForm__form"
         onSubmit={handleSubmit}>
