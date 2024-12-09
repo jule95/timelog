@@ -18,5 +18,4 @@ Fix:<br/>
 ## ToDo
 - Styles
 - Error Handling
-- ESLint
-- Camel Case
+- Form Validation: https://www.primefaces.org/primereact-v8/reactfinalform/
