@@ -1,41 +1,35 @@
-import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/client';
 import { IStaffResponse } from '../../common/interfaces/api.interfaces.ts';
 import { LOAD_STAFF } from '../../api/Queries.ts';
-import { CircularProgress } from '@mui/material';
-import Box from '@mui/material/Box';
+import { ProgressSpinner } from 'primereact/progressspinner';
 import './Employees.scss';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
 const Employees = () => {
   const { t } = useTranslation();
   const { data, loading } = useQuery<IStaffResponse>(LOAD_STAFF);
 
   return (
-    <div>
-      <Typography variant="h4">
+    <div className="Employees">
+      <h1 className="page-heading">
         {t(`employees.heading`)}
-      </Typography>
+      </h1>
 
-      { loading && (
-        <Box sx={{ display: `flex` }}>
-          <CircularProgress />
-        </Box>
-      )}
+      { loading && <ProgressSpinner />}
 
       { data && (
-        <table className="Employees__table">
-          <tbody>
-            {data.staff.map(row => (
-              <tr
-                key={row.id}
-                className="Employees__table-row">
-                <td>{row.id}</td>
-                <td>{row.name}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <DataTable
+          tableStyle={{ minWidth: `500px` }}
+          value={data.staff}>
+          <Column
+            field="id"
+            headerStyle={{ display: `none` }}></Column>
+          <Column
+            field="name"
+            headerStyle={{ display: `none` }}></Column>
+        </DataTable>
       )}
     </div>
   );
