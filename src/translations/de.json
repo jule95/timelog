@@ -20,7 +20,9 @@
       "heading": "Mein Time Log",
       "hours": "Stunden",
       "project": "Projekt",
-      "save": "Speichern"
+      "save": "Speichern",
+      "placeholderProject": "Projektname",
+      "placeholderDescription": "Was geht ab?"
     },
     "employees": {
       "heading": "Mitarbeiter"

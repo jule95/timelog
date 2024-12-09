@@ -20,7 +20,9 @@
       "heading": "My Time Log",
       "hours": "Hours",
       "project": "Project",
-      "save": "Save"
+      "save": "Save",
+      "placeholderProject": "Project Name",
+      "placeholderDescription": "What's up?"
     },
     "employees": {
       "heading": "Employees"
