@@ -13,7 +13,7 @@ i18n
       lookupCookie: `lng`,
       order: [`cookie`],
     },
-    fallbackLng: `en`,
+    fallbackLng: `de`,
     interpolation: {
       escapeValue: false,
     },
