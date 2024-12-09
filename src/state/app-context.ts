@@ -3,14 +3,18 @@ import { IAppContext, IAppState } from '../common/interfaces/state.interfaces';
 
 export const initState: IAppState = {
   newEntry: false,
+  timeLogs: [],
 };
 
 const AppContext = createContext<IAppContext>({
   actions: {
-    setNewEntry: () => {},
+    addTimeLog: () => {},
+    setTimeLogs: () => {},
+    toggleNewEntry: () => {},
   },
   state: {
     newEntry: false,
+    timeLogs: [],
   },
 });
 

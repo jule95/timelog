@@ -13,6 +13,8 @@ import { ApolloProvider } from '@apollo/client';
 import { client } from './api/config.ts';
 import Projects from './pages/Projects/Projects.tsx';
 import Employees from './pages/Employees/Employees.tsx';
+import 'primereact/resources/themes/lara-light-cyan/theme.css';
+import './theme.scss';
 
 // https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([

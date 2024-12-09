@@ -1,33 +1,9 @@
 .App {
-  &__toolbar {
-    height: 244px;
-  }
+  margin-top: 244px;
+  padding: 0 80px;
 
-  &__container {
-    padding: 0 80px !important;
-    margin: 0 !important;
-    position: relative;
-    max-width: 100% !important;
-    min-height: 1000px;
-    display: flex !important;
-  }
-
-  &__avatar {
-    width: 322px;
-    height: 408px;
-    background-size: cover;
-    background-position: center;
-    margin-left: auto;
-    position: relative;
-  }
-
-  &__avatar-button {
-    position: absolute !important;
-    top: 13px;
-    left: 10px;
-    background: black !important;
-    padding: 12px 24px !important;
-    color: white !important;
-    border-radius: 8px !important;
+  &__content {
+    display: flex;
+    justify-content: space-between;
   }
 }

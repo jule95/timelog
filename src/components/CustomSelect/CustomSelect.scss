@@ -1,0 +1,10 @@
+.CustomSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: calc(50% - 16px);
+}
+
+.p-dropdown-label {
+  color: #FF0000;
+}

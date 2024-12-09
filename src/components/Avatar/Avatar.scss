@@ -1,0 +1,14 @@
+.Avatar {
+    width: 322px;
+    height: 408px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 8px;
+
+    &__button {
+      position: absolute;
+      top: 14px;
+      left: 10px;
+    }
+}

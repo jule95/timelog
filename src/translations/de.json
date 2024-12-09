@@ -14,19 +14,24 @@
       "heading": "Hallo!"
     },
     "myTimeLog": {
-      "date": "Datum",
+      "date": "Wann?",
       "description": "Beschreibung",
-      "employee": "Mitarbeiter",
+      "employee": "Wer?",
       "heading": "Mein Time Log",
       "hours": "Stunden",
       "project": "Projekt",
-      "save": "Speichern"
+      "save": "Speichern",
+      "placeholderProject": "Projektname",
+      "placeholderDescription": "Was geht ab?"
     },
     "employees": {
       "heading": "Mitarbeiter"
     },
     "projects": {
       "heading": "Projekte"
+    },
+    "footer": {
+      "company": "Time Log Inc"
     }
   }
 }

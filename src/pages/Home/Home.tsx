@@ -1,14 +1,14 @@
-import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
+import './Home.scss';
 
 const Home = () => {
   const { t } = useTranslation();
 
   return (
     <div>
-      <Typography variant="h4">
+      <h1 className="page-heading">
         {t(`home.heading`)}
-      </Typography>
+      </h1>
     </div>
   );
 };

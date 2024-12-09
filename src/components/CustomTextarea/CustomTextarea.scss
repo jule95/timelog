@@ -1,0 +1,10 @@
+.CustomTextarea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 100%;
+}
+
+.p-inputtextarea {
+  resize: none;
+}
