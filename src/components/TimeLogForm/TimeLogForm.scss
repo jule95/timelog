@@ -1,12 +1,15 @@
 .TimeLogForm {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px 32px;
-  justify-content: space-between;
   margin-left: 208px;
-  max-width: 626px;
-}
 
-.TimeLogForm__button {
-  width: 100%;
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 32px;
+    justify-content: space-between;
+    max-width: 626px;
+  }
+
+  &__form-button {
+    width: 100%;
+  }
 }

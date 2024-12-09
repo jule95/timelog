@@ -64,48 +64,51 @@ const TimeLogForm = () => {
   };
 
   return (
-    <form
-      className="TimeLogForm"
-      onSubmit={handleSubmit}>
-      <CustomInput
-        id="date"
-        label={t(`myTimeLog.date`)}
-        name="date"
-        value={formState.values.date}
-        onChange={handleChange} />
-      <CustomSelect
-        id="employee"
-        label={t(`myTimeLog.employee`)}
-        name="employee"
-        options={options}
-        placeholder="[PLACEHOLDER]"
-        value={formState.values.employee}
-        onChange={handleChange} />
-      <CustomInput
-        id="hours"
-        label={t(`myTimeLog.hours`)}
-        name="hours"
-        type="number"
-        value={formState.values.hours}
-        onChange={handleChange} />
-      <CustomInput
-        id="project"
-        label={t(`myTimeLog.project`)}
-        name="project"
-        value={formState.values.project}
-        onChange={handleChange} />
-      <CustomInput
-        fullWidth
-        id="description"
-        label={t(`myTimeLog.description`)}
-        name="description"
-        value={formState.values.description}
-        onChange={handleChange} />
-      <Button
-        className="TimeLogForm__button"
-        label={t(`myTimeLog.save`)}
-        type="submit" />
-    </form>
+    <div className="TimeLogForm">
+      <h1>{t(`app.newEntry`)}</h1>
+      <form
+        className="TimeLogForm__form"
+        onSubmit={handleSubmit}>
+        <CustomInput
+          id="date"
+          label={t(`myTimeLog.date`)}
+          name="date"
+          value={formState.values.date}
+          onChange={handleChange} />
+        <CustomSelect
+          id="employee"
+          label={t(`myTimeLog.employee`)}
+          name="employee"
+          options={options}
+          placeholder="[PLACEHOLDER]"
+          value={formState.values.employee}
+          onChange={handleChange} />
+        <CustomInput
+          id="hours"
+          label={t(`myTimeLog.hours`)}
+          name="hours"
+          type="number"
+          value={formState.values.hours}
+          onChange={handleChange} />
+        <CustomInput
+          id="project"
+          label={t(`myTimeLog.project`)}
+          name="project"
+          value={formState.values.project}
+          onChange={handleChange} />
+        <CustomInput
+          fullWidth
+          id="description"
+          label={t(`myTimeLog.description`)}
+          name="description"
+          value={formState.values.description}
+          onChange={handleChange} />
+        <Button
+          className="TimeLogForm__form-button"
+          label={t(`myTimeLog.save`)}
+          type="submit" />
+      </form>
+    </div>
   );
 };
 
