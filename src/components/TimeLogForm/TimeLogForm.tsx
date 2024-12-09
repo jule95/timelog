@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useContext, useEffect, useState } from 'react';
 import { ITimeLogFormState, ITimeLogOption } from './TimeLogForm.types.ts';
 import { produce } from 'immer';
 import { useMutation, useQuery } from '@apollo/client';
@@ -11,10 +11,14 @@ import './TimeLogForm.scss';
 import { Button } from 'primereact/button';
 import CustomInput from '../CustomInput/CustomInput.tsx';
 import CustomSelect from '../CustomSelect/CustomSelect.tsx';
+import AppContext from '../../state/app-context.ts';
 
 const TimeLogForm = () => {
-  const { data } = useQuery<IStaffResponse>(LOAD_STAFF);
+  const { data: staffData } = useQuery<IStaffResponse>(LOAD_STAFF);
+  const [createTimeLog, { data: timeLogData, loading: timeLogLoading }] = useMutation<ICreateTimeLogResponse, ICreateTimeLogData>(CREATE_TIME_LOG_MUTATION);
   const { t } = useTranslation();
+  const [employees, setEmployees] = useState<ITimeLogOption[]>([]);
+  const { actions } = useContext(AppContext);
   const [formState, setFormState] = useState<ITimeLogFormState>({
     values: {
       date: ``,
@@ -24,23 +28,34 @@ const TimeLogForm = () => {
       project: ``,
     },
   });
-  const [options, setOptions] = useState<ITimeLogOption[]>([]);
-  const [createTimeLog] = useMutation<ICreateTimeLogResponse, ICreateTimeLogData>(CREATE_TIME_LOG_MUTATION);
 
   useEffect(() => {
-    if (!data) {
+    if (!staffData) {
       return;
     }
 
-    setOptions(data.staff.map(item => ({
+    setEmployees(staffData.staff.map(item => ({
       code: item.id,
       name: item.name,
     })));
-  }, [data]);
+  }, [staffData]);
+
+  useEffect(() => {
+    if (!timeLogData || !staffData) {
+      return;
+    }
+
+    actions.addTimeLog({
+      day: timeLogData.createTimeLog.day,
+      hours: timeLogData.createTimeLog.hours,
+      id: timeLogData.createTimeLog.id,
+      name: staffData.staff.find(item => item.id === timeLogData.createTimeLog.staff_id)?.name ?? ``,
+      project: timeLogData.createTimeLog.project_name,
+    });
+  }, [timeLogData]);
 
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    // ToDo: Add new time log to table.
     event.preventDefault();
 
     void createTimeLog({
@@ -79,7 +94,7 @@ const TimeLogForm = () => {
           id="employee"
           label={t(`myTimeLog.employee`)}
           name="employee"
-          options={options}
+          options={employees}
           placeholder="[PLACEHOLDER]"
           value={formState.values.employee}
           onChange={handleChange} />
@@ -106,6 +121,7 @@ const TimeLogForm = () => {
         <Button
           className="TimeLogForm__form-button"
           label={t(`myTimeLog.save`)}
+          loading={timeLogLoading}
           type="submit" />
       </form>
     </div>
