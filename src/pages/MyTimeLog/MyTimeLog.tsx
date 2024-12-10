@@ -28,6 +28,7 @@ const MyTimeLog = () => {
       name: staffData.staff.find(staffItem => staffItem.id === item.staff_id)?.name ?? `-`,
       project: item.project_name,
     })));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLogData, staffData]);
 
   return (

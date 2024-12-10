@@ -61,6 +61,7 @@ const TimeLogForm = () => {
       name: staffData.staff.find(item => item.id === timeLogData.createTimeLog.staff_id)?.name ?? ``,
       project: timeLogData.createTimeLog.project_name,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLogData]);
 
 

@@ -16,7 +16,7 @@ const CustomTextarea: FC<ICustomTextareaProps> = props => {
         rows={5}
         value={props.value}
         onBlur={() => setIsDirty(true)}
-        onChange={(event) => props.onChange(event.target.value, event.target.name)}/>
+        onChange={(event) => props.onChange(event.target.value, event.target.name)} />
     </div>
   );
 };
