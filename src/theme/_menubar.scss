@@ -2,14 +2,9 @@
   background: white;
   border: none;
   display: flex;
-  height: 164px;
+  min-height: 164px;
   justify-content: space-between;
   margin: 0;
-  padding: 0 16px;
-
-  @media (min-width: $tablet) {
-    padding: 0 80px;
-  }
 }
 
 .p-menuitem-content {

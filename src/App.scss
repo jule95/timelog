@@ -1,11 +1,15 @@
 .App {
-  margin-top: 244px;
   padding: 0 16px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   &__content {
     margin: 0 auto;
     max-width: 1200px;
     position: relative;
+    width: 100%;
+    flex: 1;
   }
 
   @media (min-width: $tablet) {

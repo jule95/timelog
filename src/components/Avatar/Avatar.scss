@@ -5,12 +5,14 @@
     height: 253px;
     position: relative;
     width: 200px;
+    margin-top: 20px;
 
   @media (min-width: $tablet) {
     height: 408px;
     position: absolute;
     right: 0;
     width: 322px;
+    margin-top: 80px;
   }
 
     &__button {
