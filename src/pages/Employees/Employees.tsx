@@ -21,7 +21,7 @@ const Employees = () => {
 
       { data && (
         <DataTable
-          tableStyle={{ minWidth: `500px` }}
+          tableStyle={{ width: `500px` }}
           value={data.staff}>
           <Column
             field="id"

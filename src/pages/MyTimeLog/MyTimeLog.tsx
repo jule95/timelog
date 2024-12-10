@@ -28,6 +28,7 @@ const MyTimeLog = () => {
       name: staffData.staff.find(staffItem => staffItem.id === item.staff_id)?.name ?? `-`,
       project: item.project_name,
     })));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLogData, staffData]);
 
   return (
@@ -40,20 +41,36 @@ const MyTimeLog = () => {
 
       { timeLogData && (
         <DataTable
-          tableStyle={{ width: `500px` }}
+          tableStyle={{ width: `auto` }}
           value={state.timeLogs}>
           <Column
             field="day"
-            headerStyle={{ display: `none` }}></Column>
+            headerStyle={{ display: `none` }}
+            style={{
+              padding: `25px 10px`,
+              width: `124px`,
+            }} />
           <Column
             field="hours"
-            headerStyle={{ display: `none` }}></Column>
+            headerStyle={{ display: `none` }}
+            style={{
+              padding: `25px 10px 25px 0`,
+              width: `70px`,
+            }} />
           <Column
             field="name"
-            headerStyle={{ display: `none` }}></Column>
+            headerStyle={{ display: `none` }}
+            style={{
+              padding: `25px 10px 25px 0`,
+              width: `124px`,
+            }} />
           <Column
             field="project"
-            headerStyle={{ display: `none` }}></Column>
+            headerStyle={{ display: `none` }}
+            style={{
+              padding: `25px 10px 25px 0`,
+              width: `172px`,
+            }} />
         </DataTable>
       )}
 

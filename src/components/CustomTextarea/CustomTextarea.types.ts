@@ -5,4 +5,5 @@ export interface ICustomTextareaProps {
   onChange: (value: string, name: string) => void;
   placeholder: string;
   name: string;
+  invalid: boolean;
 }

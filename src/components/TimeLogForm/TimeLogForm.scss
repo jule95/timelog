@@ -1,11 +1,9 @@
 .TimeLogForm {
-  margin-left: 208px;
-
   &__heading {
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
-    margin: 171px 0 32px 0;
+    margin: 64px 0 32px 0;
   }
 
   &__form {
@@ -18,5 +16,10 @@
 
   &__form-button {
     width: 100%;
+  }
+
+  @media (min-width: $tablet) {
+    margin-left: 208px;
+    margin: 171px 0 32px 0;
   }
 }

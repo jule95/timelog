@@ -61,6 +61,7 @@ const TimeLogForm = () => {
       name: staffData.staff.find(item => item.id === timeLogData.createTimeLog.staff_id)?.name ?? ``,
       project: timeLogData.createTimeLog.project_name,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLogData]);
 
 
@@ -107,14 +108,18 @@ const TimeLogForm = () => {
           value={formState.values.employee}
           onChange={handleChange} />
         <CustomInput
+          required
           id="hours"
+          invalid={!formState.values.hours}
           label={t(`myTimeLog.hours`)}
           name="hours"
           type="number"
           value={formState.values.hours}
           onChange={handleChange} />
         <CustomInput
+          required
           id="project"
+          invalid={!formState.values.project}
           label={t(`myTimeLog.project`)}
           name="project"
           placeholder={t(`myTimeLog.placeholderProject`)}
@@ -122,6 +127,7 @@ const TimeLogForm = () => {
           onChange={handleChange} />
         <CustomTextarea
           id="description"
+          invalid={!formState.values.description}
           label={t(`myTimeLog.description`)}
           name="description"
           placeholder={t(`myTimeLog.placeholderDescription`)}
